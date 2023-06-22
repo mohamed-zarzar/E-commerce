@@ -32,7 +32,7 @@ function MyProductBying () {
         <Box>
             <Box className="cart-banner" sx={{width:"100%",height:{xs:"200px",md:"300px"},display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
                 <Typography variant="h2" color="white">#cart</Typography>
-                <Typography variant="h6" color="white" sx={{m:"5px 0",opacity:"0.8"}}>Add your coupon coupons & up to 70% off!</Typography>
+                <Typography variant="h6" color="white" sx={{m:"5px 0",opacity:"0.8",textAlign:"center"}}>Add your coupon coupons & up to 70% off!</Typography>
             </Box>
             <TableContainer sx={{margin:"50px 0"}} component={Paper}>
                 <Table sx={{ minWidth: 200 ,maxWidth:"100%"}} aria-label="simple table">
