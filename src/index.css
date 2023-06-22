@@ -7,7 +7,80 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: white;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #009688;
+  border-radius: 5px;    /* color of the scroll thumb */
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #009688;
+}
+
+::selection {
+  color: white;
+  background: #009688;
+}
+
+/*  first banner */
+
+.banner-bg {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img//banner/b2.jpg);
+}
+
+
+/* next banner */
+.banner-bg-1 {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img//banner/banner-1.jpg);
+}
+.banner-bg-2 {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img//banner/banner-2.jpg);
+}
+.banner-bg-3 {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img//banner/banner-3.jpg);
+}
+.banner-bg-4 {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img//banner/banner-4.jpg);
+}
+.banner-bg-5 {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img//banner/banner-5.jpg);
+}
+
+
+.banner-bg-14 {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img//banner/b-33.jpg);
+}
+
+.shop-banner {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img/banner/b1.jpg);
+}
+
+.cart-banner {
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(./img/banner/b-cart.png);
 }
