@@ -1,13 +1,17 @@
 import { Box, Button, ButtonGroup, Grid, Typography } from "@mui/material";
 import {Products} from "../data/productData"
 import ProductCart from "../component/ProductCart";
-import Footer from "../component/Footer";
-import {useState} from "react"
+import {useEffect, useState} from "react"
+import { useTheme } from "@mui/material/styles";
 
 
 
 
 function Shop () {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    const theme =useTheme();
     const [productFilter,setProductFilter] = useState<string>("all");
     const buttonsName : string[]= ["all","shose","jacket","shirt","bag","hat","pants","watch"];
     const products =Products;
@@ -29,9 +33,9 @@ function Shop () {
             }}
             >
                 <ButtonGroup color="primary" sx={{maxWidth:"100%"}} variant="contained" aria-label="outlined primary button group">
-                    {buttonsName.map((btn)=>(
-                        <Button key={btn} sx={{width:{xs:"40px",sm:"65px",md:"80px"},"&:disabled":{
-                            color:"#009688",
+                    {buttonsName.map((btn,index)=>(
+                        <Button key={index} sx={{width:{xs:"40px",sm:"65px",md:"80px"},"&:disabled":{
+                            color:`${theme.palette.primary.main}`,
                             backgroundColor:"white"
                         },fontSize:{xs:"10px",md:"16px"}}}
                         disabled={productFilter === btn ?  true : false}
@@ -50,7 +54,6 @@ function Shop () {
                     })}
                 </Grid>
             </Box>
-            <Footer/>
         </Box>
     );
 }

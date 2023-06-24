@@ -2,7 +2,8 @@ import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, Tab
 import { useAppSelector,useAppDispatch } from "../rtk/hook";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { deletProduct } from "../rtk/features/myProduct";
-import Footer from "../component/Footer";
+import { useEffect } from "react";
+
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -26,6 +27,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function MyProductBying () {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const dispatch =useAppDispatch();
     const MyProducts =useAppSelector(state => state.buyProduct.buyingProduct);
     return (
@@ -68,7 +72,6 @@ function MyProductBying () {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Footer/>
         </Box>
     );
 }

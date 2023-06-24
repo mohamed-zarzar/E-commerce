@@ -6,6 +6,8 @@ import CurrentProduct from './pages/CurrentProduct';
 import Shop from './pages/Shop';
 import MyProductBying from './pages/MyProductBying';
 import About from './pages/About';
+import Footer from './component/Footer';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path='/myProductBuing' element={<MyProductBying/>}/>
         <Route path='/about' element={<About/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }

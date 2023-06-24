@@ -6,16 +6,19 @@ import SosOutlinedIcon from '@mui/icons-material/SosOutlined';
 import appStoreImg from "../img/footer/app.jpg"
 import googlePlayImg from "../img/footer/play.jpg"
 import payImg from "../img/footer/pay.png"
-
+import { useTheme } from "@mui/material";
 
 function Footer () {
+    const theme = useTheme();
     return (
         <Box>
             <Box className="banner-bg-14" sx={{width:"100 %",height:"200px",display:"flex",justifyContent:"space-between",alignItems:"center",flexDirection:{xs:"column",md:"row"},p:"10px 20px"}}>
                 <Box sx={{display:"flex",flexDirection:"column",textAlign:{xs:"center",md:"start"}}}>
                     <Typography variant="h5" sx={{color:"white"}}>Sing Up For Newsletters</Typography>
-                    <Typography variant="h6" sx={{m:"15px 0",color:"white",opacity:"0.7",display:"flex"}}>Get E-mail updates about our latest shop and <Typography variant="h6" sx={{color:"#ff9800",m:"0 3px"}} >
-                    special offers    </Typography></Typography>
+                    <Typography variant="h6" sx={{m:"15px 0",color:"white",opacity:"0.7",display:"flex"}}>
+                        Get E-mail updates about our latest shop and 
+                        <Typography variant="h6" sx={{color:"#ff9800",m:"0 3px"}} >special offers    </Typography>
+                    </Typography>
                 </Box>
                 <Box sx={{maxWidth:"100%",display:"flex",borderRadius:"5px",overflow:"hidden"}}>
                         <input type="email" placeholder="Your email address" style={{outline:"none",border:"none",fontSize:"15px" ,padding:"10px",width:"150px",maxWidth:"100%",color:"#b9bfbe",borderRadius:"0",margin:"0"}}/>
@@ -67,8 +70,8 @@ function Footer () {
                     <Typography variant="h5" color="#242d64" sx={{m:"10px 0"}}>Install App</Typography>
                     <Typography variant="h6" sx={{color:"gray",opacity:"0.8",m:"5px 0"}}>From App Store or Google Play</Typography>
                     <Box sx={{display:"flex"}}>
-                        <img src={appStoreImg} alt="" style={{margin:"10px 4px",border:"2px solid #009688",borderRadius:"5px"}} />
-                        <img src={googlePlayImg} alt="" style={{margin:"10px 4px",border:"2px solid #009688",borderRadius:"5px"}} />
+                        <img src={appStoreImg} alt="" style={{margin:"10px 4px",border:`2px solid ${theme.palette.primary.main}`,borderRadius:"5px"}} />
+                        <img src={googlePlayImg} alt="" style={{margin:"10px 4px",border:`2px solid ${theme.palette.primary.main}`,borderRadius:"5px"}} />
                     </Box>
                     <Typography variant="h6" sx={{color:"gray",opacity:"0.8",m:"5px 0"}}>Secured Payment Gateways</Typography>
                     <img src={payImg} alt=""  style={{margin:"10px 0"}}/>

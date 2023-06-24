@@ -1,11 +1,15 @@
 import { Box, Typography } from "@mui/material";
 import ImgAbout from "../img/about/a6.jpg"
-import Footer from "../component/Footer";
+import { useEffect } from "react";
+
 
 
 
 
 function About () {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <Box>
             <Box className="cart-banner" sx={{width:"100%",height:{xs:"200px",md:"300px"},display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
@@ -19,7 +23,6 @@ function About () {
                     <Typography variant="h6"  color="#9e9e9e">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate blanditiis, cumque corporis consequatur necessitatibus esse distinctio eos molestiae dignissimos, omnis delectus? Magni maiores sint provident voluptatum delectus quidem omnis harum?</Typography>
                 </Box>
             </Box>
-            <Footer/>
         </Box>
     );
 }

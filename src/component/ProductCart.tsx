@@ -4,9 +4,10 @@ import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStore
 import { useAppDispatch } from "../rtk/hook";
 import {addCurrentProduct} from "../rtk/features/currentProductSlice"
 import { Link } from "react-router-dom";
-
+import { useTheme } from "@mui/material";
 
 function ProductCart (props:ProductType) {
+    const theme =useTheme();
     const dispatch = useAppDispatch();
     const {title,img,price,evaluation,} = props;
     return (
@@ -26,7 +27,7 @@ function ProductCart (props:ProductType) {
                 <Link to="/currentProduct" >
                     <LocalGroceryStoreOutlinedIcon color="primary" sx={{cursor:"pointer",width:"25px",height:"25px",backgroundColor:"#dae9da",p:"10px",borderRadius:"50%",
                     "&:hover": {
-                        backgroundColor:"#009688",
+                        backgroundColor:`${theme.palette.primary.main}`,
                         color:"white",
                     }}}/>
                 </Link>

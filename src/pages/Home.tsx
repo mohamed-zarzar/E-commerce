@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box/Box";
-import {Button, Grid, Typography} from "@mui/material"
+import { Grid, Typography} from "@mui/material"
 import HomePageShop from "../img/home/landing/homePageShop.svg"
 import ButtonHomePage from "../img/home/landing/button.png"
 import F1Img from "../img/home/features/f1.png"
@@ -10,8 +10,9 @@ import F5Img from "../img/home/features/f5.png"
 import F6Img from "../img/home/features/f6.png"
 import {Products} from "../data/productData";
 import ProductCart from "../component/ProductCart";
-import { useState } from "react";
-import Footer from "../component/Footer";
+import { useEffect, useState } from "react";
+import { useTheme } from "@mui/material/styles";
+
 
 // start Feature Section
 type FeaturedType = {
@@ -67,6 +68,10 @@ function OnlyOneFeatured (featured:FeaturedType) {
 
 
 function Home () {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    const theme =useTheme();
     // start banner section state
         const [isFirstBannerClick,setIsFirstBannerClick] = useState<boolean>(false);
         const [isSecondBannerClick,setIsSecondBannerClick] = useState<boolean>(false);
@@ -122,7 +127,7 @@ function Home () {
             </Typography>
             <Box sx={{backgroundColor:"white",color:"#06101b",p:"4px 10px",borderRadius:"5px",m:"15px 0",
             "&:hover":{
-                backgroundColor:"#009688",
+                backgroundColor:`${theme.palette.primary.main}`,
                 color:"white",
             }}}>
                 <Typography variant="h5">Explore More</Typography>
@@ -155,12 +160,9 @@ function Home () {
                         <Typography variant="h4" sx={{opacity:"0.75",m:"5px 0"}}>crazy deals</Typography>
                         <Typography variant="h3" sx={{fontWeight:"bold",m:"5px 0"}}>buy 1 get 1 free</Typography>
                         <Typography variant="h6" sx={{opacity:"0.8",m:"10px 0"}}>The best classic dress on sale at cara</Typography>
-                        <Box sx={{p:"8px",m:"5px 0",borderRadius:"5px",border:"1px solid white",width:"100px",display:"flex",justifyContent:"center",alignItems:"center",
-                        "&:hover":{
-                            borderColor:"#009688",
-                            backgroundColor:"#009688"
-                        }}}
-                        style={isFirstBannerClick?{border:"1px solid #009688",backgroundColor:"#009688"}:{border:"1px solid white"}}>
+                        <Box sx={{p:"8px",m:"5px 0",borderRadius:"5px",border:"1px solid white",width:"100px",display:"flex",justifyContent:"center",alignItems:"center"
+                        }}
+                        style={isFirstBannerClick?{border:`1px solid ${theme.palette.primary.main}`,backgroundColor:`${theme.palette.primary.main}`}:{border:"1px solid white"}}>
                             Learn More
                         </Box>
                     </Box>
@@ -172,7 +174,7 @@ function Home () {
                         <Typography variant="h3" sx={{fontWeight:"bold",m:"5px 0"}}>upcommin season</Typography>
                         <Typography variant="h6" sx={{opacity:"0.8",m:"10px 0"}}>The best classic dress on sale at cara</Typography>
                         <Box sx={{p:"8px",m:"5px 0",borderRadius:"5px",width:"100px",display:"flex",justifyContent:"center",alignItems:"center",}}
-                        style={isSecondBannerClick?{border:"1px solid #009688",backgroundColor:"#009688"}:{border:"1px solid white"}}>
+                        style={isSecondBannerClick?{border:`1px solid ${theme.palette.primary.main}`,backgroundColor:`${theme.palette.primary.main}`}:{border:"1px solid white"}}>
                             Collection
                         </Box>
                     </Box>
@@ -192,8 +194,6 @@ function Home () {
                     </Box>
                 </Box>
         </Box>
-        {/* start footer */}
-        <Footer/>
     </Box>
     );
 }
