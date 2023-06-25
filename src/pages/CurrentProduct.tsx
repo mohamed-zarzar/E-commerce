@@ -13,6 +13,7 @@ function CurrentProduct () {
     const dispatch =useAppDispatch();
     const [isButtonHover,setIsButtonHover] =useState<boolean>(false);
     const [quantityNumber, setQuantityNumber] = useState<number>(1);
+    const [countIsHover,setCountIsHover] =useState<boolean>(false);
     const onChangenumber = (number:number) => {
         setQuantityNumber(number);
     }
@@ -21,7 +22,7 @@ function CurrentProduct () {
         setSize(event.target.value);
     };
     const currentProduct = useAppSelector(state => state.currentProduct)
-    const {img,title,type,status,price} = currentProduct
+    const {img,title,type,status,price,count} = currentProduct
     return (
         <Box sx={{display:"flex",flexDirection:"column"}}>
             <Box sx={{display:"flex",p:"40px",flexDirection:{xs:"column",md:"row"},alignItems:{xs:"center",md:"start"}}}>
@@ -48,20 +49,35 @@ function CurrentProduct () {
                             </FormControl>
                         </Tooltip>
                         <Box sx={{display:"flex",m:"20px 0",flexDirection:{xs:"column",sm:"row"}}}>
-                            <TextField
-                            id="outlined-number"
-                            label="Number"
-                            type="number"
-                            value={quantityNumber}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            sx={{width:"150px"}}
-                            size="small"
-                            onChange={(e)=>{onChangenumber(+e.target.value)}}
-                            />
+                            <Tooltip 
+                            title={`there is only : ${count} of ${title}`}
+                            placement="left-start" arrow 
+                            open={quantityNumber === count && countIsHover}
+                            onMouseOver={()=>setCountIsHover(true)}
+                            onMouseLeave={()=>setCountIsHover(false)}
+                            >
+                                <TextField
+                                    color={`${quantityNumber === 0 ? "error" : "primary"}`}
+                                    id="outlined-number"
+                                    label="Number"
+                                    type="number"
+                                    value={quantityNumber}
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    InputProps={{ 
+                                        inputProps: {
+                                            min:1 , max:count,
+                                        }
+                                    }}
+                                    sx={{width:"150px"}}
+                                    size="small"
+                                    onChange={(e)=>{onChangenumber(+e.target.value)}}
+                                    />
+                            </Tooltip>
                             <Button 
-                            variant="contained" sx={{m:{xs:"20px 0",sm:"0 0 0 10px"},cursor:`${size === '' ? "no-drop":"pointer"}`}} size="small" 
+                            variant="contained" sx={{m:{xs:"20px 0",sm:"0 0 0 10px"},cursor:`${size === '' ||
+                            quantityNumber === 0 ? "no-drop":"pointer"}`}} size="small" 
                             onClick={()=>{
                                 dispatch(buyingProduct({
                                 product:currentProduct,
@@ -74,7 +90,7 @@ function CurrentProduct () {
                             >
                                 Add To Cart
                             </Button>
-                            <Link to="/shop" style={{display:"none"}}><button ref={Ref}></button></Link>
+                            <Link to="/myProductBuing" style={{display:"none"}}><button ref={Ref}></button></Link>
                         </Box>
                     </Box>
                     <Box sx={{display:"flex",flexDirection:"column",textAlign:{xs:"center",md:"start"}}}>
