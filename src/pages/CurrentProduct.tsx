@@ -79,11 +79,14 @@ function CurrentProduct () {
                             variant="contained" sx={{m:{xs:"20px 0",sm:"0 0 0 10px"},cursor:`${size === '' ||
                             quantityNumber === 0 ? "no-drop":"pointer"}`}} size="small" 
                             onClick={()=>{
-                                dispatch(buyingProduct({
-                                product:currentProduct,
-                                quantity:quantityNumber,
-                                size:`${size}`,}))
-                                if(size !== '')  Ref.current?.click();
+                                if (size !== '' &&
+                                quantityNumber > 0 ) {
+                                    dispatch(buyingProduct({
+                                    product:currentProduct,
+                                    quantity:quantityNumber,
+                                    size:`${size}`,}))
+                                    Ref.current?.click();
+                                }
                             }}
                             onMouseOver={()=>setIsButtonHover(!isButtonHover)}
                             onMouseLeave={()=>{setIsButtonHover(!isButtonHover)}}

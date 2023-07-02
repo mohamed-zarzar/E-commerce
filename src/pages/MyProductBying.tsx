@@ -66,7 +66,7 @@ function MyProductBying () {
                                 <StyledTableCell align="right" sx={{display:{xs:"none",md:"table-cell"},color:"#9e9e9e"}}>{product.product.title}</StyledTableCell>
                                 <StyledTableCell align="right" sx={{display:{xs:"none",md:"table-cell"},color:"#9e9e9e"}}>{product.product.price}</StyledTableCell>
                                 <StyledTableCell align="right" sx={{display:{xs:"none",sm:"table-cell"}}}>{product.quantity}</StyledTableCell>
-                                <StyledTableCell align="right" sx={{color:"#4caf50"}}>{product.quantity * product.product.price}</StyledTableCell>
+                                <StyledTableCell align="right" sx={{color:"#4caf50"}}>${product.quantity * product.product.price}</StyledTableCell>
                             </StyledTableRow>
                         ))}
                     </TableBody>
