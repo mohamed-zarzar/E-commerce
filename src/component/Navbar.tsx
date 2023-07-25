@@ -10,7 +10,7 @@ import { shopStatus } from "../rtk/features/isInShop";
 
 function Navbar () {
     const dispatch = useAppDispatch();
-    const setStatusOfShop = (status:boolean) => {
+    const setStatusOfShop = (status:number) => {
         dispatch(shopStatus(status));
     }
     const lenghtOfProducts = useAppSelector(state => state.buyProduct.buyingProduct.length);
@@ -19,14 +19,12 @@ function Navbar () {
     const RefShop = useRef<HTMLButtonElement>(null);
     const RefMyProductBying = useRef<HTMLButtonElement>(null);
     const RefAbout = useRef<HTMLButtonElement>(null);
-    const [activePage,setActivePage] =useState<number>(1);
     const [openDrawer,setOpenDrawer] =useState<boolean>(false);
     const handelChange = (event: React.SyntheticEvent, newValue: number) => {
-        setActivePage(newValue);
+        setStatusOfShop(newValue);
     }
     const hnadelClickMyProductBying = () => {
-        setActivePage(0);
-        setStatusOfShop(true);
+        setStatusOfShop(0);
         RefMyProductBying.current?.click();
     }
     return (
@@ -36,23 +34,23 @@ function Navbar () {
                 <Box sx={{display:"flex",alignItems:"center",marginLeft:"auto"}}>
                 <Tabs
                 sx={{display:{xs:"none",sm:"block"}}}
-                    value={activePage}
+                    value={isInShopPage}
                     onChange={handelChange}
                     textColor="primary"
                     indicatorColor="primary"
                     >
                     <Link to="*" style={{display:"none"}}><button  ref={RefHome}></button></Link> 
                     <Tab value={1} label="Home" sx={{textTransform:"capitalize"}} onClick={()=>{RefHome.current?.click();
-                    setStatusOfShop(false);}}/>
+                    setStatusOfShop(1);}}/>
                     <Link to="/shop" style={{display:"none"}}><button  ref={RefShop}></button></Link> 
                     <Tab value={2} label="Shop" sx={{textTransform:"capitalize"}} onClick={()=>{RefShop.current?.click();
-                    setStatusOfShop(false);}}/>
+                    setStatusOfShop(2);}}/>
                     <Link to="/about" style={{display:"none"}}><button  ref={RefAbout}></button></Link> 
                     <Tab value={3} label="About" sx={{textTransform:"capitalize"}} onClick={()=>{RefAbout.current?.click();
-                    setStatusOfShop(false);}}/>
+                    setStatusOfShop(3);}}/>
                     </Tabs>
                     <Badge color="primary" badgeContent={lenghtOfProducts}>
-                        <LocalMallOutlinedIcon color={activePage === 0 || isInShopPage ?"primary":"disabled"} sx={{marginLeft:"20px"}} onClick={hnadelClickMyProductBying}/>
+                        <LocalMallOutlinedIcon color={isInShopPage === 0 ?"primary":"disabled"} sx={{marginLeft:"20px"}} onClick={hnadelClickMyProductBying}/>
                         <Link to="/myProductBuing" style={{display:"none"}}><button  ref={RefMyProductBying}></button></Link> 
                     </Badge>
                     <React.Fragment>
@@ -60,19 +58,19 @@ function Navbar () {
                         onClose={()=>setOpenDrawer(false)}>
                             <List sx={{paddingTop:"15px"}}>
                                     <ListItemButton onClick={()=>{RefHome.current?.click();
-                                    setStatusOfShop(false);}}>
+                                    setStatusOfShop(1);}}>
                                         <ListItemIcon>
                                             <ListItemText>Home</ListItemText>
                                         </ListItemIcon>
                                     </ListItemButton>
                                 <ListItemButton onClick={()=>{RefShop.current?.click();
-                                setStatusOfShop(false);}}>
+                                setStatusOfShop(2);}}>
                                     <ListItemIcon>
                                         <ListItemText>Shop</ListItemText>
                                     </ListItemIcon>
                                 </ListItemButton>
                                 <ListItemButton onClick={()=>{RefAbout.current?.click();
-                                setStatusOfShop(false);}}>
+                                setStatusOfShop(3);}}>
                                     <ListItemIcon>
                                         <ListItemText>About</ListItemText>
                                     </ListItemIcon>

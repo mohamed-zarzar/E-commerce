@@ -86,7 +86,7 @@ function CurrentProduct () {
                                     product:currentProduct,
                                     quantity:quantityNumber,
                                     size:`${size}`,}));
-                                    dispatch(shopStatus(true));
+                                    dispatch(shopStatus(0));
                                     Ref.current?.click();
                                 }
                             }}

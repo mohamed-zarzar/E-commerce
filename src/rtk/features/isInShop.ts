@@ -2,14 +2,14 @@ import {createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 
 
-const initialState = false;
+const initialState = 1;
 
 
 const isInShop = createSlice({
     name: 'isInShop',
     initialState,
     reducers: {
-        shopStatus: (state, action: PayloadAction<boolean>) => {
+        shopStatus: (state, action: PayloadAction<number>) => {
             return action.payload;
         },
     },
