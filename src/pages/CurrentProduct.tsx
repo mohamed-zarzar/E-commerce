@@ -3,6 +3,7 @@ import { useAppSelector ,useAppDispatch} from "../rtk/hook";
 import { useEffect, useRef, useState } from "react";
 import { buyingProduct } from "../rtk/features/myProduct";
 import { Link } from "react-router-dom";
+import { shopStatus } from "../rtk/features/isInShop";
 
 
 function CurrentProduct () {
@@ -86,6 +87,7 @@ function CurrentProduct () {
                                     quantity:quantityNumber,
                                     size:`${size}`,}))
                                     Ref.current?.click();
+                                    dispatch(shopStatus(true));
                                 }
                             }}
                             onMouseOver={()=>setIsButtonHover(!isButtonHover)}

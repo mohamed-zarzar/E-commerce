@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import currentProductSlice from './features/currentProductSlice';
 import myProductSlice from "./features/myProduct"
+import  isInShop  from './features/isInShop';
 
 
 
@@ -9,6 +10,7 @@ const store = configureStore({
     reducer: {
     buyProduct: myProductSlice,
     currentProduct : currentProductSlice,
+    IsInShopPage : isInShop,
     }
   })
 
