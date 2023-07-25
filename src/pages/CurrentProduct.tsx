@@ -85,9 +85,9 @@ function CurrentProduct () {
                                     dispatch(buyingProduct({
                                     product:currentProduct,
                                     quantity:quantityNumber,
-                                    size:`${size}`,}))
-                                    Ref.current?.click();
+                                    size:`${size}`,}));
                                     dispatch(shopStatus(true));
+                                    Ref.current?.click();
                                 }
                             }}
                             onMouseOver={()=>setIsButtonHover(!isButtonHover)}
