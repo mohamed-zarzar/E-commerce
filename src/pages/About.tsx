@@ -13,7 +13,7 @@ function About () {
     return (
         <Box>
             <Box className="cart-banner" sx={{width:"100%",height:{xs:"200px",md:"300px"},display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-                <Typography variant="h2" color="white">#cart</Typography>
+                <Typography variant="h2" color="white">#cartssssssssssssssss</Typography>
                 <Typography variant="h6" color="white" sx={{m:"5px 0",opacity:"0.8",textAlign:"center"}}>Add your coupon coupons & up to 70% off!</Typography>
             </Box>
             <Box sx={{display:"flex",flexDirection:{xs:"column-reverse",md:"row"},m:"30px 0",p:"30px",alignItems:{xs:"center",md:"start"}}}>
